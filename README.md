@@ -19,3 +19,8 @@ brew install git
 brew install stow
 ```
 
+## Installation
+
+```bash
+stow -d ~/documents/github/dotfiles -t ~/ .
+```
