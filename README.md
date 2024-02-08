@@ -1,26 +1,14 @@
 # dotfiles
 My configuration dotfiles
 
-## Dependencies
-
-### Git
-
-#### macOS
-
-```bash
-brew install git
-```
-
-### GNU Stow
-
-#### macOS
-
-```bash
-brew install stow
-```
-
 ## Installation
 
+### macOS
+
 ```bash
-stow -d ~/documents/github/dotfiles -t ~/ .
+bash installers/macOS.sh
 ```
+
+### Ubuntu
+
+Work in progress

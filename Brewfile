@@ -1,0 +1,15 @@
+cask_args appdir: "/Applications"
+tap "homebrew/cask"
+
+brew "git"
+brew "stow"
+brew "neovim"
+brew "tmux"
+
+cask "font-jetbrains-mono-nerd-font"
+cask "alacritty"
+cask "docker"
+cask "google-chrome"
+cask "firefox"
+cask "discord"
+cask "spotify"
