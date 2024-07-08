@@ -30,3 +30,11 @@ cd ~/Documents/GitHub
 ```bash
 gh repo clone nordinvandijk/dotfiles
 ```
+
+```bash
+cd fotfile
+```
+
+```bash
+bash installers/Ubuntu.sh
+```
