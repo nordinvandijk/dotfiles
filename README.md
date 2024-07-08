@@ -11,4 +11,22 @@ bash installers/macOS.sh
 
 ### Ubuntu
 
-Work in progress
+```bash
+sudo apt update
+```
+
+```bash
+sudo apt install gh
+```
+
+```bash
+mkdir -p ~/Documents/GitHub
+```
+
+```bash
+cd ~/Documents/GitHub
+```
+
+```bash
+gh repo clone nordinvandijk/dotfiles
+```
