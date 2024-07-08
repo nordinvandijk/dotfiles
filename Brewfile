@@ -5,6 +5,7 @@ brew "stow"
 brew "neovim"
 brew "tmux"
 brew "starship"
+brew "nvm"
 
 cask "font-jetbrains-mono-nerd-font"
 cask "alacritty"
