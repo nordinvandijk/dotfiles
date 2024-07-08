@@ -12,10 +12,6 @@ bash installers/macOS.sh
 ### Ubuntu
 
 ```bash
-sudo apt update
-```
-
-```bash
 mkdir -p ~/Documents/GitHub
 ```
 
