@@ -1,4 +1,4 @@
-sudo apt-get install build-essential procps curl file git
+sudo apt-get install build-essential procps curl file git -y
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew tap Homebrew/bundle
