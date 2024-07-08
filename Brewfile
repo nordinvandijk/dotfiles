@@ -7,6 +7,7 @@ brew "neovim"
 brew "tmux"
 brew "starship"
 brew "nvm"
+brew "fzf"
 
 cask "font-jetbrains-mono-nerd-font"
 cask "alacritty"
