@@ -3,4 +3,4 @@ apt-get install build-essential procps curl file git
 
 brew tap Homebrew/bundle
 brew bundle
-stow -d ~/documents/github/dotfiles -t ~/ .
+stow -d ~/Documents/GitHub/dotfiles -t ~/ .
