@@ -1,7 +1,7 @@
 require("nordinvandijk.plugin_config.telescope")
 require("nordinvandijk.plugin_config.lsp_config")
 require("nordinvandijk.plugin_config.autocomplete")
-require("nordinvandijk.plugin_config.catppuccin")
+require("nordinvandijk.plugin_config.theme")
 require("nordinvandijk.plugin_config.gitsigns")
 require("nordinvandijk.plugin_config.treesitter")
 require("nordinvandijk.plugin_config.formatter")

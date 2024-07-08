@@ -6,7 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-	
+
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -20,8 +20,8 @@ return require('packer').startup(function(use)
 
   use "lewis6991/gitsigns.nvim"
 
-  use { "catppuccin/nvim", as = "catppuccin" }
-  
+  use { "folke/tokyonight.nvim", as = "tokyonight" }
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()

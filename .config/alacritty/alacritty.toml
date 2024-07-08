@@ -1,6 +1,6 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/themes/tokyo-night.toml"
 ]
 
 [env]
@@ -22,34 +22,6 @@ normal={family="JetBrainsMono Nerd Font", style="Regular"}
 
 [colors]
 draw_bold_text_with_bright_colors=true
-
-[colors.primary]
-background='0x1E1D2F'
-foreground='0xD9E0EE'
-
-[colors.cursor]
-text='0x1E1D2F'
-cursor='0xF5E0DC'
-
-[colors.normal]
-black='0x6E6C7E'
-red='0xF28FAD'
-green='0xABE9B3'
-yellow='0xFAE3B0'
-blue='0x96CDFB'
-magenta='0xF5C2E7'
-cyan='0x89DCEB'
-white='0xD9E0EE'
-
-[colors.bright]
-black='0x988BA2'
-red='0xF28FAD'
-green='0xABE9B3'
-yellow='0xFAE3B0'
-blue='0x96CDFB'
-magenta='0xF5C2E7'
-cyan='0x89DCEB'
-white='0xD9E0EE'
 
 [debug]
 render_timer=false
