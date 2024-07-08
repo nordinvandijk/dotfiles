@@ -1,6 +1,6 @@
 sudo apt-get install build-essential procps curl file git -y
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo /home/linuxbrew/.linuxbrew/bin/brew shellenv) >> /home/nordinvandijk/.bashrc
+echo /home/linuxbrew/.linuxbrew/bin/brew shellenv >> /home/nordinvandijk/.bashrc
 /home/linuxbrew/.linuxbrew/bin/brew shellenv
 
 brew tap Homebrew/bundle
