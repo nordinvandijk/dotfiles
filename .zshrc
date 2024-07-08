@@ -1,5 +1,5 @@
 # Linux Homebrew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # pnpm
 export PNPM_HOME="/Users/nordin/Library/pnpm"
