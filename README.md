@@ -32,7 +32,7 @@ gh repo clone nordinvandijk/dotfiles
 ```
 
 ```bash
-cd fotfile
+cd dotfiles
 ```
 
 ```bash
