@@ -16,10 +16,6 @@ sudo apt update
 ```
 
 ```bash
-sudo apt install gh
-```
-
-```bash
 mkdir -p ~/Documents/GitHub
 ```
 
@@ -28,7 +24,7 @@ cd ~/Documents/GitHub
 ```
 
 ```bash
-gh repo clone nordinvandijk/dotfiles
+git clone https://github.com/nordinvandijk/dotfiles.git
 ```
 
 ```bash
