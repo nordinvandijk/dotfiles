@@ -1,5 +1,5 @@
-require("nordinvandijk.plugin_config")
 require("nordinvandijk.plugins")
+require("nordinvandijk.plugin_config")
 
 vim.cmd("set number") -- Line numbers
 vim.cmd("set expandtab")
