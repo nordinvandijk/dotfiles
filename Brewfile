@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 
 brew "zsh"
+brew "unzip"
 brew "stow"
 brew "neovim"
 brew "tmux"
