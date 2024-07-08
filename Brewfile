@@ -1,10 +1,10 @@
 cask_args appdir: "/Applications"
 tap "homebrew/cask"
 
-brew "git"
 brew "stow"
 brew "neovim"
 brew "tmux"
+brew "starship"
 
 cask "font-jetbrains-mono-nerd-font"
 cask "alacritty"
