@@ -32,5 +32,5 @@ cd dotfiles
 ```
 
 ```bash
-bash installers/Ubuntu.sh
+source installers/Ubuntu.sh
 ```
