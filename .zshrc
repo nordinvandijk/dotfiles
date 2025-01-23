@@ -16,6 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 # aliases
 alias vim='nvim'
 alias ls='ls --color'
+alias husky='/dev/null'
 
 [ -f "/Users/nordin/.ghcup/env" ] && . "/Users/nordin/.ghcup/env" # ghcup-env
 
