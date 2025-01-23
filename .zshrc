@@ -61,3 +61,9 @@ eval "$(fzf --zsh)"
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
+
+export PATH=$PATH:"$HOMEBREW_PREFIX/opt/dotnet@8/libexec"
+export ANDROID_HOME=$HOME/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
