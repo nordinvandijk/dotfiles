@@ -1,6 +1,6 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 import = [
-  "~/.config/alacritty/themes/tokyo-night.toml"
+  "~/.config/alacritty/themes/tokyo-night.toml",
 ]
 
 [env]
@@ -22,6 +22,16 @@ normal={family="JetBrainsMono Nerd Font", style="Regular"}
 
 [colors]
 draw_bold_text_with_bright_colors=true
+
+[mouse]
+bindings = [
+  { mouse = "Middle", mods = "Control", action = "None"},
+]
+
+[keyboard]
+bindings = [
+	{key = "Space", mods = "Control", chars = "\u0000"},
+]
 
 [debug]
 render_timer=false
