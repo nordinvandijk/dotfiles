@@ -4,9 +4,9 @@ require("mason-lspconfig").setup({
     "lua_ls", -- Lua
     "rust_analyzer", -- Rust
     "tsserver", -- Typescript
-    "eslint",
-    "tailwindcss",
-    "marksman",
+    "eslint", -- ESLint
+    "tailwindcss", -- TailwindCSS
+    "marksman", -- Markdown
     "hls", -- Haskell
     "omnisharp" -- C#
   }
