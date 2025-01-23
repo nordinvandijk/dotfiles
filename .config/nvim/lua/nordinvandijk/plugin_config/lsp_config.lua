@@ -29,7 +29,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.rust_analyzer.setup {capabilities = capabilities}
-lspconfig.tsserver.setup {capabilities = capabilities}
+lspconfig.ts_ls.setup {capabilities = capabilities}
 lspconfig.eslint.setup {capabilities = capabilities}
 lspconfig.tailwindcss.setup {capabilities = capabilities}
 lspconfig.marksman.setup {capabilities = capabilities}
