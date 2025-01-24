@@ -46,7 +46,14 @@ local plugins = {
     dependencies = { {'nvim-lua/plenary.nvim'} }
   },
   'nvim-telescope/telescope-ui-select.nvim',
-  'nvimtools/none-ls.nvim'
+  'nvimtools/none-ls.nvim',
+  {
+  'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
+  opts = {},
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  }
 }
 
 local opts = {}
