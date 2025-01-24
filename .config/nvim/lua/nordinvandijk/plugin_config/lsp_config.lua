@@ -7,7 +7,6 @@ require("mason-lspconfig").setup({
     "eslint", -- ESLint
     "tailwindcss", -- TailwindCSS
     "marksman", -- Markdown
-    "hls", -- Haskell
     "omnisharp" -- C#
   }
 })
@@ -33,7 +32,6 @@ lspconfig.ts_ls.setup {capabilities = capabilities}
 lspconfig.eslint.setup {capabilities = capabilities}
 lspconfig.tailwindcss.setup {capabilities = capabilities}
 lspconfig.marksman.setup {capabilities = capabilities}
-lspconfig.hls.setup {capabilities = capabilities,}
 lspconfig.omnisharp.setup {
   capabilities = capabilities,
   enable_roslyn_analysers = true,
