@@ -3,22 +3,6 @@ My configuration dotfiles
 
 ## Installation
 
-### macOS
-
-```bash
-bash installers/macOS.sh
-```
-
-### Ubuntu
-
-```bash
-mkdir -p ~/Documents/GitHub
-```
-
-```bash
-cd ~/Documents/GitHub
-```
-
 ```bash
 git clone https://github.com/nordinvandijk/dotfiles.git
 ```
@@ -27,6 +11,14 @@ git clone https://github.com/nordinvandijk/dotfiles.git
 cd dotfiles
 ```
 
+### Ubuntu
+
 ```bash
-source installers/Ubuntu.sh
+source setup/Ubuntu/installer.sh
+```
+
+### macOS
+
+```bash
+source setup/macOS/installer.sh
 ```
