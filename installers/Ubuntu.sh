@@ -6,7 +6,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 brew tap Homebrew/bundle
 brew bundle
-stow -d ~/Documents/GitHub/dotfiles -t ~/ .
+stow -d . -t ~/ .
 
 echo $(which zsh) | tee -a /etc/shells
 chsh -s $(which zsh) $USER
