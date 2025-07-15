@@ -20,40 +20,30 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+local dap = require("nordinvandijk.plugin_config.dap")
+local neotest = require("nordinvandijk.plugin_config.neotest")
+local treesitter = require("nordinvandijk.plugin_config.treesitter")
+local avante = require("nordinvandijk.plugin_config.avante")
+local theme = require("nordinvandijk.plugin_config.theme")
+local telescope = require("nordinvandijk.plugin_config.telescope")
+local autocomplete = require("nordinvandijk.plugin_config.autocomplete")
+local formatter = require("nordinvandijk.plugin_config.formatter")
+local gitsigns = require("nordinvandijk.plugin_config.gitsigns")
+local lsp_config = require("nordinvandijk.plugin_config.lsp_config")
+local oil = require("nordinvandijk.plugin_config.oil")
+
 local plugins = {
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
-  'hrsh7th/nvim-cmp', -- Autocompletion plugin
-  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-  'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-  'L3MON4D3/LuaSnip', -- Snippets 
-  "lewis6991/gitsigns.nvim",
-  {
-    "folke/tokyonight.nvim",
-    name = "tokyonight"
-  },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    init = function()
-      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-      ts_update()
-    end,
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
-    dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
-  'nvim-telescope/telescope-ui-select.nvim',
-  'nvimtools/none-ls.nvim',
-  {
-  'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  }
+  theme,
+  lsp_config,
+  treesitter,
+  telescope,
+  dap,
+  neotest,
+  avante,
+  autocomplete,
+  formatter,
+  gitsigns,
+  oil,
 }
 
 local opts = {}

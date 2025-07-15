@@ -1,23 +1,33 @@
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require("null-ls")
-
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.prettierd
+return {
+  "stevearc/conform.nvim",
+  event = { "BufWritePre" }, -- Load conform before a buffer is written
+  cmd = { "ConformInfo" },   -- Allow direct execution of ConformInfo
+  keys = {
+    {
+      "<leader>fm",
+      function()
+        require("conform").format({ async = true, lsp_format = "only" })
+      end,
+      mode = "", -- apply in all modes
+      desc = "Format buffer (LSP only)",
+    },
   },
-  on_attach = function (client, bufnr)
-    if client.supports_method("textDocument/formatting") then
-      vim.api.nvim_clear_autocmds({
-        group = augroup,
-        buffer = bufnr
-      })
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function ()
-          vim.lsp.buf.format({ bufnr = bufnr })
-        end
-      })
-    end
-  end
-})
+  config = function()
+    local conform = require("conform")
+    conform.setup({
+      formatters_by_ft = {
+        lua = "stylua",
+        javascript = "prettier",
+        typescript = "prettier",
+        json = "prettier",
+        html = "prettier",
+        css = "prettier",
+        scss = "prettier",
+        less = "prettier",
+        markdown = "prettier",
+        yaml = "prettier",
+          python = "black",
+      },
+    })
+  end,
+}
