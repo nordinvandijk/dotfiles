@@ -4,8 +4,11 @@ My configuration dotfiles
 
 ## Overview
 
-Terminal - Wezterm
-Shell - Nushell
-Prompt - Starship
-Code Editor - Neovim
-Git Editor - LazyGit
+|             | macOs      | Windows  |
+|-------------|------------|----------|
+| Terminal    | Wezterm    | Wezterm  |
+| Shell       | Nushell    | Nushell  |
+| Prompt      | Starship   | Starship |
+| Code Editor | Neovim     | Neovim   |
+| Git Editor  | Lazygit    | Lazygit  |
+| Containers  | OrbStack   | Docker   |
