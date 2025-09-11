@@ -2,5 +2,6 @@
 AppData/
 {{ end }}
 {{ if ne .chezmoi.os "macos" }}
-.config/nushell/config.nu
+.config/nushell/
+.config/nvim/
 {{ end }}
