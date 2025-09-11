@@ -1,4 +1,5 @@
 # dotfiles
+
 My configuration dotfiles
 
 ## Installation
@@ -22,3 +23,11 @@ source setup/Ubuntu/installer.sh
 ```bash
 source setup/macOS/installer.sh
 ```
+
+## Overview
+
+Terminal - Wezterm
+Shell - Nushell
+Prompt - Starship
+Code Editor - Neovim
+Git Editor - LazyGit
