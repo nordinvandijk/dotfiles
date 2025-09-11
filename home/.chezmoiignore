@@ -2,6 +2,6 @@
 AppData/
 {{ end }}
 {{ if ne .chezmoi.os "darwin" }}
-.config/nushell/
+Library/
 .config/nvim/
 {{ end }}
