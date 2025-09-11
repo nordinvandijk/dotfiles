@@ -20,3 +20,6 @@ format = '[$symbol$branch(:$remote_branch)]($style) '
 [git_status]
 format = '([$ahead_behind]($style) )'
 style = 'cyan'
+
+[aws]
+disabled = true
