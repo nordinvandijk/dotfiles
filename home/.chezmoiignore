@@ -1,0 +1,6 @@
+{{ if ne .chezmoi.os "windows" }}
+AppData/Roaming/nushell/config.nu
+{{ end }}
+{{ if ne .chezmoi.os "macos" }}
+.config/nushell/config.nu
+{{ end }
