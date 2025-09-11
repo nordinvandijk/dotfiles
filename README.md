@@ -2,7 +2,13 @@
 
 My configuration dotfiles
 
-## Overview
+## Installation
+
+```sh
+chezmoi init --apply https://github.com/nordinvandijk/dotfiles.git
+```
+
+## Application Overview
 
 |             | macOs      | Windows  |
 |-------------|------------|----------|
