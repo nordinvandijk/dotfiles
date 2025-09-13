@@ -9,9 +9,6 @@ config.default_prog = { 'nu' }
 local scheme = 'Tokyo Night'
 local scheme_def = wezterm.color.get_builtin_schemes()[scheme]
 config.color_scheme = scheme
--- config.colors = {
---   tab_bar = scheme_def.tab_bar
--- }
 
 -- Window decorations
 config.window_decorations = "RESIZE"
