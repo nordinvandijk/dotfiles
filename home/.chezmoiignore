@@ -5,3 +5,6 @@ AppData/
 Library/
 .config/nvim/
 {{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/nvim/
+{{ end }}
