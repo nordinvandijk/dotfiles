@@ -3,8 +3,9 @@ AppData/
 {{ end }}
 {{ if ne .chezmoi.os "darwin" }}
 Library/
-.config/nvim/
 {{ end }}
-{{ if ne .chezmoi.os "linux" }}
+
+{{ if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
+# paths to ignore everywhere except Linux + macOS
 .config/nvim/
 {{ end }}
