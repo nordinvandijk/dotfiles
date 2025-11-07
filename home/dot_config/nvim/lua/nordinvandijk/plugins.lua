@@ -23,7 +23,6 @@ vim.opt.rtp:prepend(lazypath)
 local dap = require("nordinvandijk.plugin_config.dap")
 local neotest = require("nordinvandijk.plugin_config.neotest")
 local treesitter = require("nordinvandijk.plugin_config.treesitter")
-local avante = require("nordinvandijk.plugin_config.avante")
 local theme = require("nordinvandijk.plugin_config.theme")
 local telescope = require("nordinvandijk.plugin_config.telescope")
 local autocomplete = require("nordinvandijk.plugin_config.autocomplete")
@@ -47,7 +46,6 @@ local plugins = {
   telescope,
   dap,
   neotest,
-  avante,
   autocomplete,
   formatter,
   gitsigns,
