@@ -1,4 +1,5 @@
 format = """
+$os\
 $username\
 $directory\
 $git_branch\
@@ -23,3 +24,26 @@ style = 'cyan'
 
 [aws]
 disabled = true
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Fedora = " "
+FreeBSD = " "
+Kali = " "
+Linux = " "
+Macos = " "
+NixOS = " "
+Raspbian = " "
+Ubuntu = " "
+Windows = "󰍲 "
+
+[os]
+format = "[$symbol ]($style)"
+style = "bold blue"
+disabled = false
