@@ -12,7 +12,15 @@ return {
       }
     },
     dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
+        { 
+          "mason-org/mason.nvim", 
+          opts = {
+            registries = {
+              "github:mason-org/mason-registry",
+              "github:Crashdummyy/mason-registry"
+            }
+          } 
+        },
         "neovim/nvim-lspconfig",
     },
     config = function()
@@ -30,27 +38,19 @@ return {
             }
           }
         }
-
+        
+        lspconfig.roslyn.setup { 
+          capabilities = capabilities,
+          on_attach = function()
+            print("This will run when the server attaches!")
+          end,
+          filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
+        }
         lspconfig.rust_analyzer.setup {capabilities = capabilities}
         lspconfig.ts_ls.setup {capabilities = capabilities}
         lspconfig.eslint.setup {capabilities = capabilities}
         lspconfig.tailwindcss.setup {capabilities = capabilities}
         lspconfig.marksman.setup {capabilities = capabilities}
-        lspconfig.omnisharp.setup {
-          autostart = true,
-          capabilities = capabilities,
-          cmd = {
-            "omnisharp",
-            "--languageserver",
-            "--hostPID",
-            tostring(vim.fn.getpid())
-          },
-          enable_roslyn_analysers = true,
-          enable_import_completion = true,
-          organize_imports_on_format = true,
-          enable_decompilation_support = true,
-          filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
-        }
         lspconfig.gh_actions_ls.setup { capabilities = capabilities }
 
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -102,8 +102,3 @@ return {
         )
     end
 }
-
-
-
-
-

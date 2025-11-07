@@ -33,6 +33,14 @@ local lsp_config = require("nordinvandijk.plugin_config.lsp_config")
 local oil = require("nordinvandijk.plugin_config.oil")
 
 local plugins = {
+  {
+    "seblyng/roslyn.nvim",
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    opts = {
+        -- your configuration comes here; leave empty for default settings
+    },
+  },
   theme,
   lsp_config,
   treesitter,
