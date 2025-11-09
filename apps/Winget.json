@@ -10,13 +10,7 @@
 					"PackageIdentifier" : "Git.Git"
 				},
 				{
-					"PackageIdentifier" : "Mozilla.Firefox.nl"
-				},
-				{
 					"PackageIdentifier" : "GitHub.cli"
-				},
-				{
-					"PackageIdentifier" : "7zip.7zip"
 				},
 				{
 					"PackageIdentifier" : "Google.Chrome"
@@ -34,16 +28,7 @@
 					"PackageIdentifier" : "Microsoft.AzureCLI"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudio.2022.Enterprise"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.VisualStudio.2022.BuildTools"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.SDK.8"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "BurntSushi.ripgrep.MSVC"
@@ -52,13 +37,7 @@
 					"PackageIdentifier" : "JesseDuffield.lazygit"
 				},
 				{
-					"PackageIdentifier" : "Rustlang.Rustup"
-				},
-				{
 					"PackageIdentifier" : "Obsidian.Obsidian"
-				},
-				{
-					"PackageIdentifier" : "HTTPie.HTTPie"
 				},
 				{
 					"PackageIdentifier" : "twpayne.chezmoi"
