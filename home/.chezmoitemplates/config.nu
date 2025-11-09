@@ -1,6 +1,7 @@
 alias vim = nvim
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
+$env.XDG_CONFIG_HOME = ($nu.home-path | path join ".config" )
 
 ^ssh-agent -c
     | lines
