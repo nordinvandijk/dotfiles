@@ -43,6 +43,9 @@
 					"PackageIdentifier" : "twpayne.chezmoi"
 				},
 				{
+					"PackageIdentifier" : "jdx.mise"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.Teams"
 				}
 			],
