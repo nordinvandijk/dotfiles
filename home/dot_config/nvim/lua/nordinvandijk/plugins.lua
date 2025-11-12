@@ -30,8 +30,6 @@ local formatter = require("nordinvandijk.plugin_config.formatter")
 local gitsigns = require("nordinvandijk.plugin_config.gitsigns")
 local lsp_config = require("nordinvandijk.plugin_config.lsp_config")
 local oil = require("nordinvandijk.plugin_config.oil")
-local keymaps = require("nordinvandijk.plugin_config.keymap")
-local diagnostics = require("nordinvandijk.plugin_config.diagnostics")
 
 local plugins = {
   {
@@ -43,8 +41,6 @@ local plugins = {
     },
   },
   theme,
-  keymaps,
-  diagnostics,
   lsp_config,
   treesitter,
   telescope,

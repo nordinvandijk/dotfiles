@@ -1,3 +1,5 @@
+require("nordinvandijk.keymap")
+require("nordinvandijk.diagnostics")
 require("nordinvandijk.plugins")
 
 vim.o.termguicolors = true

@@ -38,13 +38,14 @@ return {
           }
         }
 
-        -- lspconfig.roslyn.setup {
-        --   capabilities = capabilities,
-        --   on_attach = function()
-        --     print("This will run when the server attaches!")
-        --   end,
-        --   filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
-        -- }
+        lspconfig.roslyn.setup {
+          capabilities = capabilities,
+          on_attach = function()
+            print("This will run when the server attaches!")
+          end,
+          filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
+        }
+
         lspconfig.rust_analyzer.setup {capabilities = capabilities}
         lspconfig.ts_ls.setup {capabilities = capabilities}
         lspconfig.eslint.setup {capabilities = capabilities}
