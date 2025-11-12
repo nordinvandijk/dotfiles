@@ -1,4 +1,6 @@
- -- Toon alle diagnostics op de huidige regel in een zwevend venster
+vim.api.nvim_set_keymap('n', '<MiddleMouse>', '<Nop>', { noremap = true, silent = true }) -- Disable paste on middle mouse click
+
+-- Toon alle diagnostics op de huidige regel in een zwevend venster
 vim.api.nvim_set_keymap(
   'n', '<space>d', ':lua vim.diagnostic.open_float()<CR>',
   { noremap = true, silent = true }

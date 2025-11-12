@@ -2,11 +2,11 @@ return {
     "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {
-        "lua_ls", -- Lua
-        "rust_analyzer", -- Rust
+        "lua_ls",
+        "rust_analyzer",
         "ts_ls", -- Typescript
-        "eslint", -- ESLint
-        "tailwindcss", -- TailwindCSS
+        "eslint",
+        "tailwindcss",
         "marksman" -- Markdown
       }
     },
@@ -23,36 +23,6 @@ return {
         "neovim/nvim-lspconfig",
     },
     config = function()
-        local lspconfig = require("lspconfig")
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-        lspconfig.lua_ls.setup {
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-              },
-            }
-          }
-        }
-
-        lspconfig.roslyn.setup {
-          capabilities = capabilities,
-          on_attach = function()
-            print("This will run when the server attaches!")
-          end,
-          filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
-        }
-
-        lspconfig.rust_analyzer.setup {capabilities = capabilities}
-        lspconfig.ts_ls.setup {capabilities = capabilities}
-        lspconfig.eslint.setup {capabilities = capabilities}
-        lspconfig.tailwindcss.setup {capabilities = capabilities}
-        lspconfig.marksman.setup {capabilities = capabilities}
-        lspconfig.gh_actions_ls.setup { capabilities = capabilities }
-
         vim.api.nvim_create_autocmd('LspAttach', {
           group = vim.api.nvim_create_augroup('UserLspConfig', {}),
           callback = function(ev)

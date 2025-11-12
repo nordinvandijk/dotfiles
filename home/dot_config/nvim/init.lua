@@ -1,9 +1,9 @@
 require("nordinvandijk.keymap")
 require("nordinvandijk.diagnostics")
 require("nordinvandijk.plugins")
+require("nordinvandijk.lsp")
 
 vim.o.termguicolors = true
-vim.api.nvim_set_keymap('n', '<MiddleMouse>', '<Nop>', { noremap = true, silent = true }) -- Disable paste on middle mouse click
 vim.cmd("set number") -- Line numbers
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
