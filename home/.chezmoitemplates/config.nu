@@ -3,14 +3,6 @@ $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
 $env.XDG_CONFIG_HOME = ($nu.home-path | path join ".config" )
 
-^ssh-agent -c
-    | lines
-    | first 2
-    | parse "setenv {name} {value};"
-    | transpose -r
-    | into record
-    | load-env
-
 $env.config.shell_integration = {
   # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title
   osc2: true
