@@ -1,4 +1,9 @@
 alias vim = nvim
+alias vi = nvim
+alias v = nvim .
+alias lg = lazygit
+alias cursor = cursor-agent
+
 $env.config.buffer_editor = "nvim"
 $env.EDITOR = "nvim"
 $env.XDG_CONFIG_HOME = ($nu.home-path | path join ".config" )
