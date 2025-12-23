@@ -4,28 +4,10 @@
   ...
 }: let
   packages = with pkgs; [
-    bat
-    bottom
-    coreutils
-    curl
-    du-dust
-    fd
-    findutils
-    fx
-    git
-    htop
-    killall
-    mosh
-    procs
-    sd
-    tree
-    unzip
-    vim
-    wget
-    zip
     azure-cli
     carapace
     chezmoi
+    cursor-cli
     (
       with dotnetCorePackages;
       combinePackages [
@@ -34,35 +16,13 @@
       ]
     )
     gh
+    git
     lazygit
     neovim
     nushell
     ripgrep
-    rustup
+    # rustup
     starship
-
-    # rust stuff
-    cargo-cache
-    cargo-expand
-
-    # local dev stuf
-    mkcert
-
-    # treesitter
-    tree-sitter
-
-    # language servers
-    nodePackages.vscode-langservers-extracted # html, css, json, eslint
-    nodePackages.yaml-language-server
-    nil # nix
-
-    # formatters and linters
-    alejandra # nix
-    deadnix # nix
-    nodePackages.prettier
-    shellcheck
-    shfmt
-    statix # nix
   ];
 in {
   home.stateVersion = "22.11";
