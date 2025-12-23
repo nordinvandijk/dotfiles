@@ -7,13 +7,8 @@
   inputs.home-manager.url = "github:nix-community/home-manager/release-24.11";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.nur.url = "github:nix-community/NUR";
-
   inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
   inputs.nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
-
-  inputs.nix-index-database.url = "github:Mic92/nix-index-database";
-  inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
   outputs = inputs:
     with inputs; let
@@ -30,8 +25,6 @@
         };
 
         overlays = [
-          nur.overlays.default
-
           (_final: prev: {
             unstable = import nixpkgs-unstable {
               inherit (prev) system;
@@ -49,7 +42,7 @@
       };
 
       argDefaults = {
-        inherit secrets inputs self nix-index-database;
+        inherit secrets inputs self;
         channels = {
           inherit nixpkgs nixpkgs-unstable;
         };

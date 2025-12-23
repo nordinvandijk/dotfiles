@@ -1,7 +1,6 @@
 {
   pkgs,
   username,
-  nix-index-database,
   ...
 }: let
   unstable-packages = with pkgs.unstable; [
@@ -69,10 +68,6 @@
     statix # nix
   ];
 in {
-  imports = [
-    nix-index-database.hmModules.nix-index
-  ];
-
   home.stateVersion = "22.11";
 
   home = {
@@ -94,9 +89,6 @@ in {
 
   programs = {
     home-manager.enable = true;
-    nix-index.enable = true;
-    nix-index.enableFishIntegration = true;
-    nix-index-database.comma.enable = true;
 
     git = {
       enable = true;
