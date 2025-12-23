@@ -1,10 +1,9 @@
 {
   description = "WSL configuration";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-  inputs.nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  inputs.home-manager.url = "github:nix-community/home-manager/release-24.11";
+  inputs.home-manager.url = "github:nix-community/home-manager";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
@@ -14,7 +13,7 @@
     with inputs; let
       secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
 
-      nixpkgsWithOverlays = system: (import nixpkgs rec {
+      nixpkgsWithOverlays = system: (import nixpkgs {
         inherit system;
 
         config = {
@@ -23,15 +22,6 @@
             # FIXME:: add any insecure packages you absolutely need here
           ];
         };
-
-        overlays = [
-          (_final: prev: {
-            unstable = import nixpkgs-unstable {
-              inherit (prev) system;
-              inherit config;
-            };
-          })
-        ];
       });
 
       configurationDefaults = args: {
@@ -43,9 +33,6 @@
 
       argDefaults = {
         inherit secrets inputs self;
-        channels = {
-          inherit nixpkgs nixpkgs-unstable;
-        };
       };
 
       mkNixosConfiguration = {

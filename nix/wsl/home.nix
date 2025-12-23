@@ -3,8 +3,7 @@
   username,
   ...
 }: let
-  unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
+  packages = with pkgs; [
     bat
     bottom
     coreutils
@@ -41,9 +40,7 @@
     ripgrep
     rustup
     starship
-  ];
 
-  stable-packages = with pkgs; [
     # rust stuff
     cargo-cache
     cargo-expand
@@ -77,22 +74,14 @@ in {
     sessionVariables.EDITOR = "nvim";
   };
 
-  home.packages =
-    stable-packages
-    ++ unstable-packages
-    ++
-    # FIXME: you can add anything else that doesn't fit into the above two lists in here
-    [
-      # pkgs.some-package
-      # pkgs.unstable.some-other-package
-    ];
+  home.packages = packages;
 
   programs = {
     home-manager.enable = true;
 
     git = {
       enable = true;
-      package = pkgs.unstable.git;
+      package = pkgs.git;
       delta.enable = true;
       delta.options = {
         line-numbers = true;
