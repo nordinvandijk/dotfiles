@@ -1,33 +1,13 @@
 {
   pkgs,
   username,
-  nix-index-database,
   ...
 }: let
-  unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
-    bat
-    bottom
-    coreutils
-    curl
-    du-dust
-    fd
-    findutils
-    fx
-    git
-    htop
-    killall
-    mosh
-    procs
-    sd
-    tree
-    unzip
-    vim
-    wget
-    zip
+  packages = with pkgs; [
     azure-cli
     carapace
     chezmoi
+    cursor-cli
     (
       with dotnetCorePackages;
       combinePackages [
@@ -36,43 +16,15 @@
       ]
     )
     gh
+    git
     lazygit
     neovim
     nushell
     ripgrep
-    rustup
+    # rustup
     starship
   ];
-
-  stable-packages = with pkgs; [
-    # rust stuff
-    cargo-cache
-    cargo-expand
-
-    # local dev stuf
-    mkcert
-
-    # treesitter
-    tree-sitter
-
-    # language servers
-    nodePackages.vscode-langservers-extracted # html, css, json, eslint
-    nodePackages.yaml-language-server
-    nil # nix
-
-    # formatters and linters
-    alejandra # nix
-    deadnix # nix
-    nodePackages.prettier
-    shellcheck
-    shfmt
-    statix # nix
-  ];
 in {
-  imports = [
-    nix-index-database.hmModules.nix-index
-  ];
-
   home.stateVersion = "22.11";
 
   home = {
@@ -82,25 +34,14 @@ in {
     sessionVariables.EDITOR = "nvim";
   };
 
-  home.packages =
-    stable-packages
-    ++ unstable-packages
-    ++
-    # FIXME: you can add anything else that doesn't fit into the above two lists in here
-    [
-      # pkgs.some-package
-      # pkgs.unstable.some-other-package
-    ];
+  home.packages = packages;
 
   programs = {
     home-manager.enable = true;
-    nix-index.enable = true;
-    nix-index.enableFishIntegration = true;
-    nix-index-database.comma.enable = true;
 
     git = {
       enable = true;
-      package = pkgs.unstable.git;
+      package = pkgs.git;
       delta.enable = true;
       delta.options = {
         line-numbers = true;
