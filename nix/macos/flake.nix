@@ -14,30 +14,32 @@
       system.primaryUser = "nordin";
       nixpkgs.config.allowUnfree = true;
 
-      environment.systemPackages =
+      environment.systemPackages = with pkgs;
         [
-          pkgs.azure-cli
-          pkgs.carapace
-          pkgs.chezmoi
-          pkgs.discord
-          pkgs.docker
+          azure-cli
+          carapace
+          chezmoi
+          claude-code
+          discord
+          docker
           (
-            with pkgs.dotnetCorePackages;
+            with dotnetCorePackages;
             combinePackages [
               sdk_8_0
               sdk_9_0
             ]
           )
-          pkgs.gh
-          pkgs.lazygit
-          pkgs.neovim
-          pkgs.nodejs_24
-          pkgs.nushell
-          pkgs.obsidian
-          pkgs.ripgrep
-          pkgs.rustup
-          pkgs.starship
-          pkgs.wezterm
+          gh
+          (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ]))
+          lazygit
+          neovim
+          nodejs_24
+          nushell
+          obsidian
+          ripgrep
+          rustup
+          starship
+          wezterm
         ];
 
       homebrew = {
@@ -53,6 +55,11 @@
         pkgs.nerd-fonts.jetbrains-mono
       ];
 
+      environment.interactiveShellInit = ''
+        if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+          exec nu
+        fi
+      '';
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
