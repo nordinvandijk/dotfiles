@@ -11,8 +11,6 @@
 
   outputs = inputs:
     with inputs; let
-      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
-
       nixpkgsWithOverlays = system: (import nixpkgs {
         inherit system;
 

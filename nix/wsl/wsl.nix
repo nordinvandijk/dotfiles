@@ -16,6 +16,35 @@
   '';
 
   environment.enableAllTerminfo = true;
+  environment.systemPackages = with pkgs; [
+    azure-cli
+    carapace
+    chezmoi
+    cursor-cli
+    (
+      with dotnetCorePackages;
+      combinePackages [
+        sdk_8_0
+        sdk_9_0
+      ]
+    )
+    gh
+    git
+    lazygit
+    neovim
+    nodejs_24
+    nushell
+    powershell
+    ripgrep
+    roslyn
+    roslyn-ls
+    # rustup
+    starship
+  ];
+  environment.variables = {
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}/lib/dotnet";
+    EDITOR = "nvim";
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -23,14 +52,7 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      # FIXME: uncomment the next line if you want to run docker without sudo
-      # "docker"
-    ];
-  };
-
-  home-manager.users.${username} = {
-    imports = [
-      ./home.nix
+      "docker"
     ];
   };
 
@@ -43,9 +65,7 @@
     wslConf.network.generateHosts = false;
     defaultUser = username;
     startMenuLaunchers = true;
-
-    # Enable integration with Docker Desktop (needs to be installed)
-    docker-desktop.enable = false;
+    docker-desktop.enable = true;
   };
 
   virtualisation.docker = {

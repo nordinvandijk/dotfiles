@@ -19,8 +19,12 @@
     git
     lazygit
     neovim
+    nodejs_24
     nushell
+    powershell
     ripgrep
+    roslyn
+    roslyn-ls
     # rustup
     starship
   ];
@@ -30,38 +34,9 @@ in {
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
-
-    sessionVariables.EDITOR = "nvim";
   };
-
-  home.packages = packages;
 
   programs = {
     home-manager.enable = true;
-
-    git = {
-      enable = true;
-      package = pkgs.git;
-      delta.enable = true;
-      delta.options = {
-        line-numbers = true;
-        side-by-side = true;
-        navigate = true;
-      };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
-      extraConfig = {
-        push = {
-          default = "current";
-          autoSetupRemote = true;
-        };
-        merge = {
-          conflictstyle = "diff3";
-        };
-        diff = {
-          colorMoved = "default";
-        };
-      };
-    };
   };
 }
