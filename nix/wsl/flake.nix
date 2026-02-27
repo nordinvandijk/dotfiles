@@ -1,13 +1,11 @@
 {
   description = "WSL configuration";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-  inputs.home-manager.url = "github:nix-community/home-manager";
-  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-  inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
-  inputs.nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   outputs = inputs:
     with inputs; let
@@ -23,10 +21,6 @@
       });
 
       configurationDefaults = args: {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.backupFileExtension = "hm-backup";
-        home-manager.extraSpecialArgs = args;
       };
 
       argDefaults = {
@@ -45,12 +39,7 @@
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
           pkgs = nixpkgsWithOverlays system;
-          modules =
-            [
-              (configurationDefaults specialArgs)
-              home-manager.nixosModules.home-manager
-            ]
-            ++ modules;
+          modules = modules;
         };
     in {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;

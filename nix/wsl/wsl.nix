@@ -15,9 +15,14 @@
     fi
   '';
 
+  programs.nix-ld.enable = true;
+
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
+    acli
+    act
     azure-cli
+    bicep
     carapace
     chezmoi
     cursor-cli
@@ -26,23 +31,31 @@
       combinePackages [
         sdk_8_0
         sdk_9_0
+        sdk_10_0
       ]
     )
     gh
     git
+    github-copilot-cli
+    icu
+    kubectl
     lazygit
     neovim
     nodejs_24
     nushell
+    pnpm
     powershell
     ripgrep
     roslyn
     roslyn-ls
     # rustup
     starship
+    terraform
+    unzip
+    wslu
   ];
   environment.variables = {
-    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}/lib/dotnet";
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
     EDITOR = "nvim";
   };
 
