@@ -111,6 +111,7 @@
             "${home-modules}/nushell.nix"
             "${home-modules}/starship.nix"
             "${home-modules}/carapace.nix"
+            "${home-modules}/gh.nix"
           ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
       ];
