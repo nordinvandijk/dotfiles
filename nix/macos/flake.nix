@@ -6,9 +6,12 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-modules = { url = "path:../home"; flake = false; };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, home-modules }:
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "nordin";
@@ -17,7 +20,6 @@
       environment.systemPackages = with pkgs;
         [
           azure-cli
-          bun
           carapace
           cocoapods
           chezmoi
@@ -27,8 +29,7 @@
           (
             with dotnetCorePackages;
             combinePackages [
-              sdk_8_0
-              sdk_9_0
+              sdk_10_0
             ]
           )
           gh
@@ -43,7 +44,6 @@
           ripgrep
           rustup
           starship
-          terraform
           wezterm
         ];
 
@@ -81,14 +81,18 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      users.users.nordin = {
+        home = "/Users/nordin";
+      };
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
-      modules = [ 
-        configuration 
+      modules = [
+        configuration
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
@@ -97,6 +101,17 @@
             user = "nordin";
             autoMigrate = true;
           };
+        }
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.nordin = { imports = [
+            "${home-modules}/git.nix"
+            "${home-modules}/nushell.nix"
+            "${home-modules}/starship.nix"
+            "${home-modules}/carapace.nix"
+          ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
       ];
     };
