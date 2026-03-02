@@ -21,7 +21,6 @@
         [
           azure-cli
           carapace
-          cocoapods
           chezmoi
           claude-code
           discord
