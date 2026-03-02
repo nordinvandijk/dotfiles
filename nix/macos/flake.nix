@@ -17,7 +17,9 @@
       environment.systemPackages = with pkgs;
         [
           azure-cli
+          bun
           carapace
+          cocoapods
           chezmoi
           claude-code
           discord
@@ -31,14 +33,17 @@
           )
           gh
           (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ]))
+          kubernetes-helm
           lazygit
           neovim
           nodejs_24
           nushell
           obsidian
+          pnpm
           ripgrep
           rustup
           starship
+          terraform
           wezterm
         ];
 
