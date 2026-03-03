@@ -6,12 +6,6 @@ My configuration dotfiles
 
 ### Applications
 
-For macos
-
-```sh 
-brew bundle install
-```
-
 For windows
 
 ```sh
