@@ -19,9 +19,8 @@
 
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
-    acli
     act
-    azure-cli
+    # azure-cli
     bicep
     carapace
     chezmoi
@@ -50,7 +49,6 @@
     roslyn-ls
     # rustup
     starship
-    terraform
     unzip
     wslu
   ];

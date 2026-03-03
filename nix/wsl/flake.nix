@@ -5,6 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-modules = { url = "path:../home"; flake = false; };
   };
 
   outputs = inputs:
@@ -48,6 +51,21 @@
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nordin = {
+              imports = [
+                "${home-modules}/git.nix"
+                "${home-modules}/nushell.nix"
+                "${home-modules}/starship.nix"
+                "${home-modules}/carapace.nix"
+                "${home-modules}/gh.nix"
+              ];
+              home.stateVersion = "24.11";
+            };
+          }
         ];
       };
     };
