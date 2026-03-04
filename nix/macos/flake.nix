@@ -35,7 +35,6 @@
           (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ]))
           kubernetes-helm
           lazygit
-          neovim
           nodejs_24
           nushell
           obsidian
@@ -111,6 +110,7 @@
             "${home-modules}/starship.nix"
             "${home-modules}/carapace.nix"
             "${home-modules}/gh.nix"
+            "${home-modules}/nvim.nix"
           ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
       ];

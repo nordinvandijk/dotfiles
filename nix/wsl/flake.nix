@@ -62,6 +62,7 @@
                 "${home-modules}/starship.nix"
                 "${home-modules}/carapace.nix"
                 "${home-modules}/gh.nix"
+                "${home-modules}/nvim.nix"
               ];
               home.stateVersion = "24.11";
             };

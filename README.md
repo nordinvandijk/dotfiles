@@ -14,8 +14,26 @@ winget import Winget.json
 
 ### Configurations
 
+Install NIX
+
+```sh 
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+```
+nix-env -iA nixos.git
+```
+
 ```sh
-chezmoi init --apply https://github.com/nordinvandijk/dotfiles.git
+git clone https://github.com/nordin/dotfiles.git 
+```
+
+```sh
+cd dotfiles 
+```
+
+```
+sudo nixos-rebuild switch --flake ./nix/wsl
 ```
 
 ## Application Overview

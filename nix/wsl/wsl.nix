@@ -39,7 +39,6 @@
     icu
     kubectl
     lazygit
-    neovim
     nodejs_24
     nushell
     pnpm

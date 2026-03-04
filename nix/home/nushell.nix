@@ -6,8 +6,6 @@
       $env.config = {
         show_banner: false
       }
-      $env.config.buffer_editor = "nvim"
-      $env.EDITOR = "nvim"
 
       $env.config.shell_integration = {
         # osc2 abbreviates the path if in the home_dir, sets the tab/window title, shows the running command in the tab/window title
