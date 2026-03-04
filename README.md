@@ -14,26 +14,40 @@ winget import Winget.json
 
 ### Configurations
 
-Install NIX
+Install Nix or NixOS
 
 ```sh 
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 ```
+https://nix-community.github.io/NixOS-WSL/install.html
+```
+
+Install git via nix so that you can clone the dotfiles repo
+
+```
 nix-env -iA nixos.git
 ```
+
+Clone the repo
 
 ```sh
 git clone https://github.com/nordin/dotfiles.git 
 ```
 
-```sh
-cd dotfiles 
-```
+Install the nix flake
+
+*MacOS*
 
 ```
-sudo nixos-rebuild switch --flake ./nix/wsl
+sudo darwin-rebuild switch --flake ./dotfiles/nix/macos#simple
+```
+
+*WSL*
+
+```
+sudo nixos-rebuild switch --flake ./dotfiles/nix/wsl
 ```
 
 ## Application Overview

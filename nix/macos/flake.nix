@@ -20,8 +20,6 @@
       environment.systemPackages = with pkgs;
         [
           azure-cli
-          carapace
-          chezmoi
           claude-code
           discord
           docker
