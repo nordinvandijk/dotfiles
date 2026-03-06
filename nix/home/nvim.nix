@@ -55,36 +55,9 @@
       }
       {
       mode = "n";
-      key = "gd";
-      action = "<cmd>Telescope lsp_definitions<CR>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-      }
-      {
-      mode = "n";
-      key = "gi";
-      action = "<cmd>Telescope lsp_implementations<CR>";
-      options = {
-        noremap = true;
-        silent = true;
-      };
-      }
-      {
-      mode = "n";
       key = "<space>rn";
       action = "vim.lsp.buf.rename";
       lua = true;
-      options = {
-        noremap = true;
-        silent = true;
-      };
-      }
-      {
-      mode = "n";
-      key = "gr";
-      action = "<cmd>Telescope lsp_references<CR>";
       options = {
         noremap = true;
         silent = true;
@@ -239,6 +212,15 @@
 	        "<Space>fh" = {
 	          action = "help_tags";
 	        };
+          "gd" = {
+            action = "lsp_definitions";
+          };
+          "gi" = {
+            action = "lsp_implementations";
+          };
+          "gr" = {
+            action = "lsp_references";
+          };
         };
       };
       treesitter = {
