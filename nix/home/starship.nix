@@ -5,6 +5,7 @@
         add_newline = false;
         format = lib.concatStrings [
             "$os"
+            "$nix_shell"
             "$username"
             "$directory"
             "$git_branch"
@@ -40,6 +41,9 @@
           Ubuntu = " ";
           Windows = "󰍲 ";
         };
+
+        nix_shell.format = "[nix-dev]($style) ";
+        nix_shell.style = "bold cyan";
 
         os.format = "[$symbol ]($style)";
         os.style = "bold blue";
