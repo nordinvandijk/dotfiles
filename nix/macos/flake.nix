@@ -8,10 +8,12 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     home-modules = { url = "path:../home"; flake = false; };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, home-modules }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nixvim, home-modules }:
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "nordin";
@@ -98,6 +100,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.nordin = { imports = [
+            nixvim.homeModules.nixvim
             "${home-modules}/git.nix"
             "${home-modules}/nushell.nix"
             "${home-modules}/starship.nix"

@@ -59,7 +59,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.nordin = {
               imports = [
-                nixvim.homeManagerModules.nixvim
+                nixvim.homeModules.nixvim
                 "${home-modules}/git.nix"
                 "${home-modules}/nushell.nix"
                 "${home-modules}/starship.nix"
