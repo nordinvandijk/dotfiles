@@ -1,26 +1,4 @@
 return {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "ts_ls", -- Typescript
-        "eslint",
-        "tailwindcss",
-        "marksman" -- Markdown
-      }
-    },
-    dependencies = {
-        {
-          "mason-org/mason.nvim",
-          opts = {
-            registries = {
-              "github:mason-org/mason-registry",
-              "github:Crashdummyy/mason-registry"
-            }
-          }
-        },
-        "neovim/nvim-lspconfig",
     },
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -32,15 +10,8 @@ return {
             -- Buffer local mappings.
             -- See `:help vim.lsp.*` for documentation on any of the below functions
             local opts = { buffer = ev.buf }
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-            vim.keymap.set('n', 'gd', builtin.lsp_definitions, opts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', 'gi', builtin.lsp_implementations, opts)
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
             vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-            vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-            vim.keymap.set("n", "gr", builtin.lsp_references, opts)
             vim.keymap.set('n', '<space>f', function()
               vim.lsp.buf.format { async = true }
             end, opts)

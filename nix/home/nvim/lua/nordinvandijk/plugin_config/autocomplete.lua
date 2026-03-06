@@ -1,41 +1,6 @@
-return {
-  {
-    "hrsh7th/nvim-cmp",
-    lazy = false,
-    priority = 100,
-    dependencies = {
-      "onsails/lspkind.nvim",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      {
-        "L3MON4D3/LuaSnip",
-        build = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" }
-      },
-      "saadparwaiz1/cmp_luasnip",
-      "roobert/tailwindcss-colorizer-cmp.nvim",
-      {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-          require("supermaven-nvim").setup {
-            -- disable_inline_completion = true,
-          }
-        end,
-      },
-    },
     config = function()
       local cmp = require('cmp')
-      local luasnip = require('luasnip')
-      require("luasnip.loaders.from_vscode").lazy_load()
-      luasnip.filetype_extend("javascript", {"javascriptreact"})
-      luasnip.filetype_extend("typescriptreact", { "html" })
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
+
         mapping = cmp.mapping.preset.insert({
           ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
           ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
@@ -64,13 +29,5 @@ return {
             end
           end, { 'i', 's' }),
         }),
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' },
-          { name = 'buffer' },
-          { name = 'path' },
-        },
       }
     end,
-  },
-}
