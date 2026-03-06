@@ -104,6 +104,7 @@
             "${home-modules}/carapace.nix"
             "${home-modules}/gh.nix"
             "${home-modules}/nvim.nix"
+            "${home-modules}/lazygit.nix"
           ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
       ];
