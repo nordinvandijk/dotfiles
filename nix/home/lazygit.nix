@@ -6,6 +6,7 @@
       os = {
         openLink = "xdg-open {{link}}";
       };
+      notRepository = "quit";
     };
   };
 }
