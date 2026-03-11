@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
@@ -13,7 +12,7 @@
     home-modules = { url = "path:../home"; flake = false; };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nixvim, home-modules }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim, home-modules }:
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "nordin";
@@ -32,6 +31,7 @@
             ]
           )
           gh
+          google-chrome
           (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ]))
           kubernetes-helm
           lazygit
@@ -41,18 +41,10 @@
           pnpm
           ripgrep
           rustup
+          spotify
           starship
           wezterm
         ];
-
-      homebrew = {
-        enable = true;
-        casks = [
-          "google-chrome"
-          "spotify"
-        ];
-        onActivation.cleanup = "zap";
-      };
 
       fonts.packages = [
         pkgs.nerd-fonts.jetbrains-mono
@@ -86,15 +78,6 @@
     darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = true;
-            user = "nordin";
-            autoMigrate = true;
-          };
-        }
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
