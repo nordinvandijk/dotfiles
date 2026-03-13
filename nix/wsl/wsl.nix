@@ -20,33 +20,20 @@
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
     act
-    # azure-cli
-    bicep
+    azure-cli
     carapace
-    chezmoi
     cursor-cli
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        sdk_8_0
-        sdk_9_0
-        sdk_10_0
-      ]
-    )
     gh
     git
     github-copilot-cli
     icu
     kubectl
     lazygit
-    nodejs_24
     nushell
-    pnpm
     powershell
     ripgrep
     roslyn
     roslyn-ls
-    # rustup
     starship
     unzip
     wslu
