@@ -24,6 +24,19 @@
     };
 
     keymaps = [
+{
+      mode = "n";
+      key = "<leader>f/";
+      action.__raw = ''
+      function()
+	require('telescope.builtin').live_grep({
+	  grep_open_files = true,
+	  prompt_title = "Live Grep in Open Files"
+	})
+	end
+      '';
+      options.desc = "Fuzzily search in open files";
+    }
       {
         mode = "n";
         key = "<space>d";
@@ -79,12 +92,45 @@
       cmp = {
         enable = true;
         autoEnableSources = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "buffer"; }
-          { name = "path"; }
-        ];
+        settings = {
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "luasnip"; }
+            { name = "buffer"; }
+            { name = "path"; }
+          ];
+          mapping = {
+            __raw = ''
+              cmp.mapping.preset.insert({
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<CR>'] = cmp.mapping.confirm({
+                  behavior = cmp.ConfirmBehavior.Replace,
+                  select = true,
+                }),
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                  local luasnip = require('luasnip')
+                  if cmp.visible() then
+                    cmp.select_next_item()
+                  elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
+                  else
+                    fallback()
+                  end
+                end, { 'i', 's' }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                  local luasnip = require('luasnip')
+                  if cmp.visible() then
+                    cmp.select_prev_item()
+                  elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                  else
+                    fallback()
+                  end
+                end, { 'i', 's' }),
+              })
+            '';
+          };
+        };
       };
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
