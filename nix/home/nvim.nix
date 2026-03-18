@@ -287,6 +287,7 @@
           yaml
         ];
       };
+      web-devicons.enable = true;
     };
   };
 }
