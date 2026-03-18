@@ -20,27 +20,16 @@
 
       environment.systemPackages = with pkgs;
         [
-          azure-cli
+          btop
           claude-code
           discord
           docker
-          (
-            with dotnetCorePackages;
-            combinePackages [
-              sdk_10_0
-            ]
-          )
           gh
           google-chrome
-          (haskellPackages.ghcWithPackages (pkgs: with pkgs; [ cabal-install ]))
-          kubernetes-helm
           lazygit
-          nodejs_24
           nushell
           obsidian
-          pnpm
           ripgrep
-          rustup
           spotify
           starship
           wezterm
