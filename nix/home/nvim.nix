@@ -232,6 +232,7 @@
           };
         };
       };
+      roslyn.enable = true;
       telescope = {
         enable = true;
 	      file_ignore_patterns = [
