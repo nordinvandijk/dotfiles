@@ -62,6 +62,7 @@
                 nixvim.homeModules.nixvim
                 "${home-modules}/git.nix"
                 "${home-modules}/nushell.nix"
+                "${home-modules}/nushell-wsl.nix"
                 "${home-modules}/starship.nix"
                 "${home-modules}/carapace.nix"
                 "${home-modules}/gh.nix"

@@ -20,17 +20,14 @@
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
     act
-    azure-cli
     carapace
     cursor-cli
     gh
     git
     github-copilot-cli
     icu
-    kubectl
     lazygit
     nushell
-    powershell
     ripgrep
     roslyn
     roslyn-ls
