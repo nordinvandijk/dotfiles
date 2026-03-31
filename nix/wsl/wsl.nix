@@ -20,6 +20,7 @@
   environment.enableAllTerminfo = true;
   environment.systemPackages = with pkgs; [
     act
+    btop
     carapace
     cursor-cli
     gh
