@@ -33,6 +33,7 @@
     roslyn-ls
     starship
     unzip
+    wezterm
     wslu
   ];
   environment.variables = {
@@ -54,6 +55,7 @@
 
   wsl = {
     enable = true;
+    useWindowsDriver = true;
     wslConf.automount.root = "/mnt";
     wslConf.interop.appendWindowsPath = false;
     wslConf.network.generateHosts = false;

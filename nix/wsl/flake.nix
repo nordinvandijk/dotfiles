@@ -68,6 +68,7 @@
                 "${home-modules}/gh.nix"
                 "${home-modules}/nvim.nix"
                 "${home-modules}/lazygit.nix"
+                "${home-modules}/wezterm.nix"
               ];
               home.stateVersion = "24.11";
             };
