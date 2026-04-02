@@ -22,6 +22,7 @@
     act
     btop
     carapace
+    claude-code
     cursor-cli
     gh
     git
@@ -30,8 +31,6 @@
     lazygit
     nushell
     ripgrep
-    roslyn
-    roslyn-ls
     starship
     unzip
     wezterm

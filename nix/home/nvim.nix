@@ -189,9 +189,6 @@
           nixd = {
             enable = true;
           };
-          roslyn_ls = {
-            enable = true;
-          };
           rust_analyzer = {
             enable = true;
           };
@@ -232,7 +229,12 @@
           };
         };
       };
-      roslyn.enable = true;
+      roslyn = {
+        enable = true;
+        settings = {
+          filewatching = "off";
+        };
+      };
       telescope = {
         enable = true;
 	      file_ignore_patterns = [
