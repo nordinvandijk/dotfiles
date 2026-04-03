@@ -235,6 +235,7 @@
           rust_analyzer = {
             enable = true;
             installCargo = true;
+            installRustc = true;
           };
           tailwindcss = {
             enable = true;
