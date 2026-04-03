@@ -75,51 +75,32 @@
       {
         mode = "n";
         key = "<space>d";
-        action = "<cmd>lua vim.diagnostic.open_float()<CR>";
-        options = {
-          noremap = true;
-          silent = true;
-        };
+        action.__raw = "vim.diagnostic.open_float";
+        options.desc = "Open diagnostic float";
       }
       {
-      mode = "n";
-      key = "K";
-      action = "vim.lsp.buf.hover";
-      lua = true;
-      options = {
-        noremap = true;
-        silent = true;
-      };
+        mode = "n";
+        key = "K";
+        action.__raw = "vim.lsp.buf.hover";
+        options.desc = "Hover documentation";
       }
       {
-      mode = "n";
-      key = "gD";
-      action = "vim.lsp.buf.declaration";
-      lua = true;
-      options = {
-        noremap = true;
-        silent = true;
-      };
+        mode = "n";
+        key = "gD";
+        action.__raw = "vim.lsp.buf.declaration";
+        options.desc = "Go to declaration";
       }
       {
-      mode = "n";
-      key = "<space>rn";
-      action = "vim.lsp.buf.rename";
-      lua = true;
-      options = {
-        noremap = true;
-        silent = true;
-      };
+        mode = "n";
+        key = "<space>rn";
+        action.__raw = "vim.lsp.buf.rename";
+        options.desc = "Rename symbol";
       }
       {
-      mode = [ "n" "v" ];
-      key = "<space>ca";
-      action = "vim.lsp.buf.code_action";
-      lua = true;
-      options = {
-        noremap = true;
-        silent = true;
-      };
+        mode = [ "n" "v" ];
+        key = "<space>ca";
+        action.__raw = "vim.lsp.buf.code_action";
+        options.desc = "Code action";
       }
     ];
 
