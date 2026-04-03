@@ -24,6 +24,21 @@
     };
 
     keymaps = [
+    {
+    key = "<C-Space>";
+    mode = [ "n" "x" "o" ];
+    action.__raw = ''
+      function()
+        require("flash").treesitter({
+          actions = {
+            ["<c-space>"] = "next",
+            ["<BS>"] = "prev",
+          },
+        })
+      end
+    '';
+    options.desc = "Treesitter incremental selection";
+  }
 {
       mode = "n";
       key = "<leader>f/";
@@ -177,6 +192,14 @@
       dap = {
         enable = true;
       };
+      flash = {
+        enable = true;
+        modes = {
+          treesitter = {
+            search.incremental = true;
+          };
+        };
+      };
       gitsigns = {
         enable = true;
       };
@@ -229,6 +252,9 @@
           };
         };
       };
+      render-markdown = {
+        enable = true;
+      };
       roslyn = {
         enable = true;
         settings = {
@@ -277,6 +303,7 @@
         highlight.enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           bash
+          c_sharp
           json
           lua
           make
