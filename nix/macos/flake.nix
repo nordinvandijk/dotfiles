@@ -2,6 +2,7 @@
   description = "MacOs configuration";
 
   inputs = {
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +13,7 @@
     home-modules = { url = "path:../home"; flake = false; };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nixvim, home-modules }:
+  outputs = inputs@{ self, determinate, nix-darwin, nixpkgs, home-manager, nixvim, home-modules }:
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "nordin";
@@ -45,6 +46,8 @@
         fi
       '';
 
+      system.defaults.dock.autohide = true;
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
@@ -66,6 +69,7 @@
   {
     darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
       modules = [
+        inputs.determinate.darwinModules.default
         configuration
         home-manager.darwinModules.home-manager
         {
@@ -82,6 +86,11 @@
             "${home-modules}/lazygit.nix"
           ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
+        ({ ... }: {
+        # Let Determinate Nix handle Nix configuration
+        nix.enable = false;
+        determinateNix.enable = true;
+        })
       ];
     };
   };
