@@ -22,7 +22,6 @@
       environment.systemPackages = with pkgs;
         [
           btop
-          claude-code
           discord
           docker
           gh
@@ -84,6 +83,7 @@
             "${home-modules}/gh.nix"
             "${home-modules}/nvim.nix"
             "${home-modules}/lazygit.nix"
+            "${home-modules}/claude.nix"
           ]; home.homeDirectory = "/Users/nordin"; home.stateVersion = "24.11"; };
         }
         ({ ... }: {
