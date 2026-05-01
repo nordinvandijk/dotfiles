@@ -34,7 +34,6 @@
     starship
     unzip
     wezterm
-    wslu
   ];
   environment.variables = {
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
