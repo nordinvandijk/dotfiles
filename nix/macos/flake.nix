@@ -23,6 +23,7 @@
         [
           btop
           discord
+          colima
           docker
           gh
           google-chrome
@@ -44,6 +45,14 @@
           exec nu
         fi
       '';
+
+      launchd.user.agents.colima = {
+        command = "${pkgs.colima}/bin/colima start --foreground";
+        serviceConfig = {
+          RunAtLoad = true;
+          KeepAlive = false;
+        };
+      };
 
       system.defaults.dock.autohide = true;
 
