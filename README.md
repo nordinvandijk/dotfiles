@@ -4,14 +4,6 @@ My configuration dotfiles
 
 ## Installation
 
-### Applications
-
-For windows
-
-```sh
-winget import Winget.json
-```
-
 ### Configurations
 
 Install Nix or NixOS
