@@ -4,7 +4,12 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  pkgs-stable = import inputs.nixpkgs-stable {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config.allowUnfree = true;
+  };
+in {
   time.timeZone = "Europe/Amsterdam";
 
   networking.hostName = "${hostname}";
@@ -34,7 +39,7 @@
     starship
     unzip
     wezterm
-    wsl-open
+    pkgs-stable.wslu
   ];
   environment.variables = {
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
