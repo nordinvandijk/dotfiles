@@ -14,6 +14,8 @@ in {
 
   networking.hostName = "${hostname}";
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.bash.interactiveShellInit = ''
     if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
       exec nu

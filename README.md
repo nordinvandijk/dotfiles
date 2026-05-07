@@ -16,7 +16,7 @@ winget import Winget.json
 
 Install Nix or NixOS
 
-```sh 
+```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
@@ -33,7 +33,7 @@ nix-env -iA nixos.git
 Clone the repo
 
 ```sh
-git clone https://github.com/nordin/dotfiles.git 
+git clone https://github.com/nordin/dotfiles.git
 ```
 
 Install the nix flake
@@ -41,13 +41,13 @@ Install the nix flake
 *MacOS*
 
 ```
-sudo darwin-rebuild switch --flake ./dotfiles/nix/macos#simple
+sudo darwin-rebuild switch --flake ./dotfiles#macos
 ```
 
 *WSL*
 
 ```
-sudo nixos-rebuild switch --flake ./dotfiles/nix/wsl
+sudo nixos-rebuild switch --flake ./dotfiles#nixos
 ```
 
 ## Application Overview
@@ -58,5 +58,5 @@ sudo nixos-rebuild switch --flake ./dotfiles/nix/wsl
 | Shell       | Nushell    |
 | Prompt      | Starship   |
 | Code Editor | Neovim     |
-| Git Editor  | Lazygit    | 
-| Containers  | Docker     | 
+| Git Editor  | Lazygit    |
+| Containers  | Docker     |
