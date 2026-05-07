@@ -10,15 +10,9 @@
       customCommands = [
         {
           key = "W";
-          description = "Add worktree in ../";
-          command = ''git worktree add ../{{index .PromptResponses 0}} {{index .PromptResponses 0}}'';
+          description = "Add worktree in ../ named after branch";
+          command = ''git worktree add ../{{.SelectedLocalBranch.Name}} {{.SelectedLocalBranch.Name}}'';
           context = "localBranches";
-          prompts = [
-            {
-              type = "input";
-              title = "Branch / folder name (created under ../)";
-            }
-          ];
           loadingText = "Creating worktree...";
         }
       ];
