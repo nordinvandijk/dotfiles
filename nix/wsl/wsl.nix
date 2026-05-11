@@ -68,7 +68,6 @@ in {
     wslConf.network.generateHosts = false;
     defaultUser = username;
     startMenuLaunchers = true;
-    docker-desktop.enable = true;
   };
 
   virtualisation.docker = {
