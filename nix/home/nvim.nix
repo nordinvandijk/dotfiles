@@ -221,6 +221,7 @@
             installCargo = true;
             installRustc = true;
           };
+          sourcekit.enable = true;
           tailwindcss = {
             enable = true;
           };
