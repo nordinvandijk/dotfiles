@@ -31,6 +31,7 @@ in {
     carapace
     claude-code
     cursor-cli
+    docker
     gh
     git
     github-copilot-cli
@@ -41,6 +42,7 @@ in {
     starship
     unzip
     wezterm
+    xdg-utils
     pkgs-stable.wslu
   ];
   environment.variables = {
