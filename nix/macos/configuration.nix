@@ -16,6 +16,7 @@
     spotify
     starship
     wezterm
+    xdg-utils
   ];
 
   fonts.packages = [
