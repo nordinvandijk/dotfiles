@@ -152,52 +152,56 @@
       cmp-nvim-lsp.enable = true;
       cmp-path.enable = true;
 
-      conform = {
+      conform-nvim = {
         enable = true;
         autoLoad = true;
-        format_on_save = # Lua
-      ''
-        function(bufnr)
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
-          end
+        settings = {
+          format_on_save = # Lua
+          ''
+            function(bufnr)
+              if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
+              end
 
-          if slow_format_filetypes[vim.bo[bufnr].filetype] then
-            return
-          end
+              if slow_format_filetypes[vim.bo[bufnr].filetype] then
+                return
+              end
 
-          local function on_format(err)
-            if err and err:match("timeout$") then
-              slow_format_filetypes[vim.bo[bufnr].filetype] = true
+              local function on_format(err)
+                if err and err:match("timeout$") then
+                  slow_format_filetypes[vim.bo[bufnr].filetype] = true
+                end
+              end
+
+              return { timeout_ms = 200, lsp_fallback = true }, on_format
+             end
+          '';
+          format_after_save = # Lua
+          ''
+            function(bufnr)
+              if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                return
+              end
+
+              if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+                return
+              end
+
+              return { lsp_fallback = true }
             end
-          end
-
-          return { timeout_ms = 200, lsp_fallback = true }, on_format
-         end
-      '';
-        format_after_save = # Lua
-	''
-	  function(bufnr)
-	    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-	      return
-	    end
-
-	    if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-	      return
-	    end
-
-	    return { lsp_fallback = true }
-	  end
-	'';
+          '';
+        };
       };
       dap = {
         enable = true;
       };
       flash = {
         enable = true;
-        modes = {
-          treesitter = {
-            search.incremental = true;
+        settings = {
+          modes = {
+            treesitter = {
+              search.incremental = true;
+            };
           };
         };
       };
@@ -221,15 +225,16 @@
             installCargo = true;
             installRustc = true;
           };
-          sourcekit.enable = true;
+          sourcekit.enable = pkgs.stdenv.isDarwin;
           tailwindcss = {
             enable = true;
           };
           ts_ls = {
             enable = true;
           };
-          gh_action_ls = {
+          gh_actions_ls = {
             enable = true;
+            package = null;
           };
         };
       };
@@ -270,12 +275,12 @@
       };
       telescope = {
         enable = true;
-	      file_ignore_patterns = [
-	        "node%_modules/.*"
-	        "node_modules"
-	        "^node_modules/*"
-	        "node_modules/*"
-	      ];
+        settings.defaults.file_ignore_patterns = [
+          "node%_modules/.*"
+          "node_modules"
+          "^node_modules/*"
+          "node_modules/*"
+        ];
         extensions = {
           ui-select = {
             enable = true;
