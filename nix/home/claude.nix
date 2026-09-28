@@ -15,20 +15,6 @@
           ${pkgs.jq}/bin/jq -r '.oauthAccount.emailAddress // "not logged in"' "''${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json" 2>/dev/null
         '');
       };
-      hooks = {
-        Stop = [
-          {
-            matcher = "";
-            hooks = [
-              {
-                type = "command";
-                command = "osascript -e 'display notification \"Claude has finished\" with title \"Claude Code\" sound name \"Glass\"'";
-                timeout = 5;
-              }
-            ];
-          }
-        ];
-      };
     };
   };
 }
