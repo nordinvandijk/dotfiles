@@ -9,6 +9,12 @@
     };
     settings = {
       model = "opus";
+      statusLine = {
+        type = "command";
+        command = toString (pkgs.writeShellScript "claude-statusline" ''
+          ${pkgs.jq}/bin/jq -r '.oauthAccount.emailAddress // "not logged in"' "''${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json" 2>/dev/null
+        '');
+      };
       hooks = {
         Stop = [
           {
