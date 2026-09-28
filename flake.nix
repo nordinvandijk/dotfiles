@@ -46,6 +46,7 @@
               "${homeModules}/gh.nix"
               "${homeModules}/nvim.nix"
               "${homeModules}/lazygit.nix"
+              "${homeModules}/herdr.nix"
               "${homeModules}/claude.nix"
             ];
             home.homeDirectory = "/Users/nordin";
@@ -85,6 +86,7 @@
               "${homeModules}/gh.nix"
               "${homeModules}/nvim.nix"
               "${homeModules}/lazygit.nix"
+              "${homeModules}/herdr.nix"
               "${homeModules}/wezterm.nix"
             ];
             home.stateVersion = "24.11";
