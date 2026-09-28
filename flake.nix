@@ -50,6 +50,7 @@
               "${homeModules}/claude.nix"
             ];
             home.homeDirectory = "/Users/nordin";
+            programs.nixvim.nixpkgs.source = nixpkgs;
             home.stateVersion = "24.11";
           };
         }
@@ -89,6 +90,7 @@
               "${homeModules}/herdr.nix"
               "${homeModules}/wezterm.nix"
             ];
+            programs.nixvim.nixpkgs.source = nixpkgs;
             home.stateVersion = "24.11";
           };
         }

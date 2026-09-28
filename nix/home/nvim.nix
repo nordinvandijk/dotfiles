@@ -225,7 +225,7 @@
             installCargo = true;
             installRustc = true;
           };
-          sourcekit.enable = pkgs.stdenv.isDarwin;
+          sourcekit.enable = pkgs.stdenv.hostPlatform.isDarwin;
           tailwindcss = {
             enable = true;
           };
