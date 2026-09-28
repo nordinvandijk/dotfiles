@@ -48,6 +48,7 @@
               "${homeModules}/lazygit.nix"
               "${homeModules}/herdr.nix"
               "${homeModules}/claude.nix"
+              "${homeModules}/wezterm.nix"
             ];
             home.homeDirectory = "/Users/nordin";
             programs.nixvim.nixpkgs.source = nixpkgs;
