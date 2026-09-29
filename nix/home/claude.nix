@@ -2,7 +2,7 @@
   programs.claude-code = {
     enable = true;
     context = ''
-      - Create git worktrees in `.herdr/worktrees/` at the repository root.
+      - Create git worktrees in `~/.herdr/worktrees/<repo>/<branch>`, never inside the repository.
     '';
     skills = {
       herdr = pkgs.fetchurl {
