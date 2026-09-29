@@ -13,6 +13,7 @@
     nushell
     obsidian
     ripgrep
+    slack
     spotify
     starship
     wezterm
