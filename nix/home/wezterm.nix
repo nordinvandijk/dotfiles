@@ -10,7 +10,7 @@
 
     -- Tab bar (multiplexing is handled by herdr)
     config.enable_tab_bar = false
-  '' + lib.optionalString pkgs.stdenv.isDarwin ''
+  '' + lib.optionalString pkgs.stdenv.hostPlatform.isDarwin ''
 
     -- Window decorations
     config.window_decorations = "RESIZE"
@@ -20,7 +20,7 @@
     }
 
     config.max_fps = 120
-  '' + lib.optionalString pkgs.stdenv.isLinux ''
+  '' + lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
 
     config.default_prog = { 'nu' }
 
