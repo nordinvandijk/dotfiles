@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   programs.claude-code = {
     enable = true;
+    context = ''
+      - Create git worktrees in `.herdr/worktrees/` at the repository root.
+    '';
     skills = {
       herdr = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/herdrdev/herdr/v0.9.1/skills/herdr/SKILL.md";
