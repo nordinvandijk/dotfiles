@@ -1,5 +1,5 @@
 keys:
-  - &nordin age1myya7f0hs90pqqagxtl7cwn46kp3s3y3z5lp8hs3la5nzccplvdq68qhjh
+  - &nordin ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK5JpagPqxOOJqlmeKY/c/H1JiA3Cs8MGTqiGi+gpVqe nordinvandijk@icloud.com
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:

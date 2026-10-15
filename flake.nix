@@ -19,6 +19,12 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    crit.url = "github:tomasz-tomczyk/crit";
+    crit.inputs.nixpkgs.follows = "nixpkgs";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, determinate, nix-darwin, nixos-wsl, home-manager, nixvim, ... }:
@@ -35,9 +41,11 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.nordin = {
             imports = [
               nixvim.homeModules.nixvim
+              inputs.sops-nix.homeManagerModules.sops
               "${homeModules}/git.nix"
               "${homeModules}/nushell.nix"
               "${homeModules}/starship.nix"
@@ -49,6 +57,8 @@
               "${homeModules}/herdr.nix"
               "${homeModules}/claude.nix"
               "${homeModules}/wezterm.nix"
+              "${homeModules}/crit.nix"
+              "${homeModules}/sops.nix"
             ];
             home.homeDirectory = "/Users/nordin";
             programs.nixvim.nixpkgs.source = nixpkgs;

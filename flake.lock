@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "crit": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791292151,
+        "narHash": "sha256-JGoljZ6uGHHqJjiVZ/ds67ozaKzLtphnOBj56qPy948=",
+        "owner": "tomasz-tomczyk",
+        "repo": "crit",
+        "rev": "f9779f218ed176ff5caeb2cb9939adc1dcf24757",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tomasz-tomczyk",
+        "repo": "crit",
+        "type": "github"
+      }
+    },
     "determinate": {
       "inputs": {
         "determinate-nixd-aarch64-darwin": "determinate-nixd-aarch64-darwin",
@@ -370,6 +390,7 @@
     },
     "root": {
       "inputs": {
+        "crit": "crit",
         "determinate": "determinate",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
@@ -377,7 +398,28 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792056300,
+        "narHash": "sha256-YU1LjDe1o2Ymg5zEiCHbmMXLkDCtxHQRiVqZ3nC5GGk=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "44931708c62937c2b1bf7953902989fa5bb9ee1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {
