@@ -1,8 +1,23 @@
-{pkgs, ...}: {
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
+  sops = {
+    defaultSopsFile = "${inputs.self}/secrets/claude.yaml";
+    secrets."playwright/mijnibis_email" = {};
+    secrets."playwright/mijnibis_password" = {};
+    templates."playwright-mcp.env".content = ''
+      MIJNIBIS_EMAIL=${config.sops.placeholder."playwright/mijnibis_email"}
+      MIJNIBIS_PASSWORD=${config.sops.placeholder."playwright/mijnibis_password"}
+    '';
+  };
+
   programs.claude-code = {
     mcpServers.playwright = {
       command = "${pkgs.playwright-mcp}/bin/playwright-mcp";
-      args = ["--headless" "--isolated"];
+      args = ["--headless" "--isolated" "--secrets" config.sops.templates."playwright-mcp.env".path];
     };
     enable = true;
     context = ''
