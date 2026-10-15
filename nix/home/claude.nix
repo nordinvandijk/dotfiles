@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   programs.claude-code = {
+    mcpServers.playwright = {
+      command = "${pkgs.playwright-mcp}/bin/playwright-mcp";
+      args = ["--headless" "--isolated"];
+    };
     enable = true;
     context = ''
       - Create git worktrees in `~/.herdr/worktrees/<repo>/<branch>`, never inside the repository.
