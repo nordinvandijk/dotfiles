@@ -59,6 +59,7 @@
               "${homeModules}/wezterm.nix"
               "${homeModules}/crit.nix"
               "${homeModules}/sops.nix"
+              "${homeModules}/chrome.nix"
             ];
             home.homeDirectory = "/Users/nordin";
             programs.nixvim.nixpkgs.source = nixpkgs;
