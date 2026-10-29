@@ -104,6 +104,14 @@
       }
     ];
 
+    # Tracks filetypes whose formatter has timed out, so conform switches
+    # them from format_on_save to the async format_after_save path.
+    # Referenced by the conform format_on_save/format_after_save hooks below.
+    extraConfigLuaPre = # Lua
+    ''
+      slow_format_filetypes = {}
+    '';
+
     plugins = {
       cmp = {
         enable = true;

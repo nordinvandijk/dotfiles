@@ -29,7 +29,7 @@
 
   outputs = inputs@{ self, nixpkgs, flake-utils, determinate, nix-darwin, nixos-wsl, home-manager, nixvim, ... }:
   let
-    homeModules = ./nix/home;
+    homeModules = ./home;
   in
   {
     darwinConfigurations.macos = nix-darwin.lib.darwinSystem {
@@ -60,6 +60,7 @@
               "${homeModules}/crit.nix"
               "${homeModules}/sops.nix"
               "${homeModules}/chrome.nix"
+              "${homeModules}/firefox.nix"
             ];
             home.homeDirectory = "/Users/nordin";
             programs.nixvim.nixpkgs.source = nixpkgs;

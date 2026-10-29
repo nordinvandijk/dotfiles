@@ -19,6 +19,15 @@
       active_titlebar_bg = "none",
     }
 
+    -- No title bar or tab bar to grab, so Cmd+drag moves the window
+    config.mouse_bindings = {
+      {
+        event = { Drag = { streak = 1, button = 'Left' } },
+        mods = 'SUPER',
+        action = wezterm.action.StartWindowDrag,
+      },
+    }
+
     config.max_fps = 120
   '' + lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
 

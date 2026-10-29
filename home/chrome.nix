@@ -5,6 +5,10 @@
   # domain (subdomains included) -> CSS selectors to hide
   hideRules = {
     # "example.com" = [".cookie-banner" "#sidebar-ads"];
+    "youtube.com" = [
+      "ytd-feed-filter-chip-bar-renderer"
+      "ytd-rich-grid-renderer > #header chip-bar-view-model"
+    ];
   };
 
   extDir = ".config/chrome-hide-elements";
