@@ -16,6 +16,7 @@
       "ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer.style-scope:nth-of-type(2)"
       "yt-chip-cloud-renderer"
       ''a[href="/feed/channels"]''
+      ''ytd-browse[page-subtype="subscriptions"] ytd-rich-section-renderer''
     ];
   };
 
