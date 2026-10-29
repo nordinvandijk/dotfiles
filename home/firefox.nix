@@ -10,6 +10,7 @@
       "3rdparty".Extensions."uBlock0@raymondhill.net".toOverwrite.filters = [
         "youtube.com##ytd-feed-filter-chip-bar-renderer"
         "youtube.com##ytd-rich-grid-renderer > #header chip-bar-view-model"
+        "youtube.com##ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer.style-scope:nth-of-type(2)"
       ];
     };
   };

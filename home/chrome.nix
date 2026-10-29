@@ -8,6 +8,7 @@
     "youtube.com" = [
       "ytd-feed-filter-chip-bar-renderer"
       "ytd-rich-grid-renderer > #header chip-bar-view-model"
+      "ytd-mini-guide-entry-renderer.ytd-mini-guide-renderer.style-scope:nth-of-type(2)"
     ];
   };
 
