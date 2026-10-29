@@ -47,7 +47,7 @@
               nixvim.homeModules.nixvim
               inputs.sops-nix.homeManagerModules.sops
               "${homeModules}/git.nix"
-              "${homeModules}/nushell.nix"
+              "${homeModules}/nushell/nushell.nix"
               "${homeModules}/starship.nix"
               "${homeModules}/carapace.nix"
               "${homeModules}/direnv.nix"
