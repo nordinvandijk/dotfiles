@@ -60,7 +60,6 @@
               "${homeModules}/crit.nix"
               "${homeModules}/sops.nix"
               "${homeModules}/chrome.nix"
-              "${homeModules}/firefox.nix"
             ];
             home.homeDirectory = "/Users/nordin";
             programs.nixvim.nixpkgs.source = nixpkgs;
